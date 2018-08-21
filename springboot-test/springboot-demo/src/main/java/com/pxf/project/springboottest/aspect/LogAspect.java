@@ -1,5 +1,6 @@
 package com.pxf.project.springboottest.aspect;
 
+import com.google.gson.Gson;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
@@ -84,9 +85,10 @@ public class LogAspect {
             if (args != null) {
                 // 做自己的业务请求数据处理
             }
-            Object o =  jp.proceed();
-            logger.info("方法环绕proceed，结果是 :" + o);
-            return o;
+            Object obj =  jp.proceed();
+            logger.info("请求响应所需时间为:", new Object[]{System.currentTimeMillis() - currentTime + "ms"});
+            logger.info("方法环绕proceed，结果是 :" +  new Gson().toJson(obj) );
+            return obj;
         } catch (Throwable e) {
             e.printStackTrace();
             return null;
