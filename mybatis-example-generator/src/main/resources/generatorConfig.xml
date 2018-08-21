@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<classPathEntry
+		location="D:/MyServer/mybatis-tool/mysql-connector-java-5.1.9.jar" />
+	<context id="context1">
+		<plugin type="org.mybatis.generator.plugins.PaginationPlugin" />
+		<commentGenerator>
+			<property name="suppressDate" value="true" />
+		</commentGenerator>
+			<!--
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+            connectionURL="jdbc:mysql://rm-bp1bgo3n4o4164eq7.mysql.rds.aliyuncs.com:3306/loanflow?characterEncoding=utf8"
+                        userId="loan"
+                        password="Uft-Gh5R">
+        </jdbcConnection>
+       -->
+       <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+            connectionURL="jdbc:mysql://10.53.156.240:3306/loanpublic?characterEncoding=utf8"
+                        userId="dev"
+                        password="wdphdev2018">
+				<property name="useInformationSchema" value="true"></property>
+        </jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		 
+		<javaModelGenerator targetPackage="com.hsjry.consoleuser.dal.dao.model" targetProject="D:/MyServer/mybatis-tool/src" />
+		<sqlMapGenerator targetPackage="sqlmap" targetProject="D:/MyServer/mybatis-tool/src" />
+		<javaClientGenerator targetPackage="com.hsjry.consoleuser.dal.dao.mapper" targetProject="D:/MyServer/mybatis-tool/src" type="XMLMAPPER">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+	  <!--
+		<table tableName="user_label_info"></table>
+		 
+		
+		<table tableName="user_label_data_type_param"></table>
+		
+		<table tableName="user_label_relation"></table>
+		<table tableName="user_label_relation_his"></table>
+		<table tableName="user_label_order_operation_detail"></table>
+		<table tableName="user_label_sys_operation_serial"></table>
+		<table tableName="user_label_role_relation"></table> 
+		
+		
+		<table tableName="console_operate_log"></table> 
+		
+		--> 
+		
+		<table tableName="console_operate_log_his"></table> 
+</context>
+</generatorConfiguration>
+
+
+
+
+
+
+
+
+
+
+
