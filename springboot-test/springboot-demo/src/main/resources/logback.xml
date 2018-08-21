@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss"/>
+    <property name="appName" value="myapp"></property>
+    <property name="LOG_HOME" value="D:\\logs\\springboot\\"></property>
+    <property name="FILE_BASENAME" value="springboot-test"></property>
+
+    <contextName>${appName}</contextName>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %thread %logger{35} %level - %msg %n</pattern>
+        </encoder>
+    </appender>
+    <!-- DEBUG -->
+    <appender name="DEBUG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}${FILE_BASENAME}-DEBUG.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <OnMatch>ACCEPT</OnMatch>
+            <OnMismatch>DENY</OnMismatch>
+        </filter>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_HOME}${FILE_NAME}-%d{yyyy-MM-dd}-DEBUG.log</FileNamePattern>
+            <!-- 超过MaxHistory之前的删除 -->
+            <MaxHistory>1</MaxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%thread %logger{35} %level - %msg %n</pattern>
+        </encoder>
+        <layout>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %thread %logger{96}[%line] %level - %msg %n</pattern>
+        </layout>
+    </appender>
+    <!-- INFO -->
+    <appender name="INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}${FILE_BASENAME}-INFO.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <OnMatch>ACCEPT</OnMatch>
+            <OnMismatch>DENY</OnMismatch>
+        </filter>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_HOME}${FILE_NAME}-%d{yyyy-MM-dd}-INFO.log</FileNamePattern>
+            <!-- 超过MaxHistory之前的删除 -->
+            <MaxHistory>1</MaxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%thread %logger{35} %level - %msg %n</pattern>
+        </encoder>
+        <layout>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %thread %logger{96}[%line] %level - %msg %n</pattern>
+        </layout>
+    </appender>
+    <!-- WARN -->
+    <appender name="WARN" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}${FILE_BASENAME}-WARN.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <OnMatch>ACCEPT</OnMatch>
+            <OnMismatch>DENY</OnMismatch>
+        </filter>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_HOME}${FILE_NAME}-%d{yyyy-MM-dd}-WARN.log</FileNamePattern>
+            <!-- 超过MaxHistory之前的删除 -->
+            <MaxHistory>1</MaxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%thread %logger{35} %level - %msg %n</pattern>
+        </encoder>
+        <layout>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %thread %logger{96}[%line] %level - %msg %n</pattern>
+        </layout>
+    </appender>
+    <!-- ERROR -->
+    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}${FILE_BASENAME}-ERROR.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <OnMatch>ACCEPT</OnMatch>
+            <OnMismatch>DENY</OnMismatch>
+        </filter>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_HOME}${FILE_NAME}-%d{yyyy-MM-dd}-ERROR.log</FileNamePattern>
+            <!-- 超过MaxHistory之前的删除 -->
+            <MaxHistory>1</MaxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%thread %logger{35} %level - %msg %n</pattern>
+        </encoder>
+        <layout>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %thread %logger{96}[%line] %level - %msg %n</pattern>
+        </layout>
+    </appender>
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="DEBUG" />
+        <appender-ref ref="INFO" />
+        <appender-ref ref="WARN" />
+        <appender-ref ref="ERROR" />
+    </root>
+    <logger name="com.pxf.project" level="DEBUG"/>
+    <logger name="org.apache" level="WARN"/>
+    <logger name="org.springframework" level="WARN"/>
+    <logger name="org.quartz" level="WARN"/>
+    <logger name="com.opensymphony" level="ERROR"/>
+    <logger name="java.sql.Connection" level="WARN"/>
+    <logger name="java.sql.PreparedStatement" level="WARN"/>
+    <logger name="java.sql.ResultSet" level="WARN"/>
+    <logger name="org.springframework.jdbc.core.JdbcTemplate" level="DEBUG"/>
+
+</configuration>
