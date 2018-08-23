@@ -12,7 +12,7 @@ public class DubboServiceImpl implements DubboService {
     private static int count = 0;
     @Override
     public String sayHello(String name) {
-        count = count++;
+        count = ++count;
         logger.info("到达provider-----------------> name：" + name +"  ;count："+count);
         return "provider返回-----------------> name：" + name +"  ;count："+count;
     }

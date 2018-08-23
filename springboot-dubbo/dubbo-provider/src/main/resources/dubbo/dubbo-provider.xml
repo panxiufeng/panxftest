@@ -7,9 +7,15 @@
     http://code.alibabatech.com/schema/dubbo
     http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
+
+    <!-- 提供方应用信息，用于计算依赖关系 -->
     <dubbo:application name="${dubbo.application.name}"/>
+    <!-- 使用zookeeper注册中心暴露服务地址 -->
     <dubbo:registry protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}"/>
+    <!-- 使用dubbo协议在20880端口暴露服务 -->
     <dubbo:protocol name="${dubbo.protocol.name}" port="${dubbo.protocol.port}"/>
+    <!-- 声明需要暴露的服务接口 -->
     <dubbo:service interface="com.pxf.project.dubboapi.service.DubboService" ref="dubboService" timeout="6000"/>
+    <!-- 和本地bean一样实现服务 -->
     <bean id="dubboService" class="com.pxf.project.dubboprovider.service.DubboServiceImpl"/>
 </beans>
