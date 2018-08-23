@@ -84,7 +84,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .anyRequest().permitAll()//其他所有资源都不需要认证
                 .and()
                     .formLogin()
-                    .loginPage("/loginPage")
+                    .loginPage("/login")
                     .defaultSuccessUrl("/index")//登录成功后默认跳转到"/hello"
 //                    .failureUrl("/403")
                     .successHandler(myAuthenticationSuccessHandler)//登陆成功处理

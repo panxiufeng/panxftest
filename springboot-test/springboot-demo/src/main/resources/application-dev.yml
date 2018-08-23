@@ -54,6 +54,16 @@ spring:
     username: 475054216@qq.com
     password: ddidgwfdweqobjdc
     default-encoding: UTF-8
+
+# 与mybatis整合
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*Mapper.xml
+
+# 分页配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+  row-bounds-with-count: true

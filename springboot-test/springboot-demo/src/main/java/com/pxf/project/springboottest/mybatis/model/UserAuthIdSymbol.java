@@ -266,4 +266,19 @@ public class UserAuthIdSymbol extends UserAuthIdSymbolKey {
     public void setModifier(String modifier) {
         this.modifier = modifier;
     }
+
+
+    @Override
+    public String toString() {
+        return "UserAuthIdSymbol{" +
+                "authId='" + authId + '\'' +
+                ", identifiers='" + identifiers + '\'' +
+                ", identifyKind='" + identifyKind + '\'' +
+                ", idStatus='" + idStatus + '\'' +
+                ", createTime=" + createTime +
+                ", creator='" + creator + '\'' +
+                ", updateTime=" + updateTime +
+                ", modifier='" + modifier + '\'' +
+                '}';
+    }
 }

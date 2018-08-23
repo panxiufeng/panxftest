@@ -1,5 +1,8 @@
 package com.pxf.project.springboottest.mybatis.dao.impl;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.pxf.project.springboottest.mybatis.dao.UserAuthIdSymbolDao;
 import com.pxf.project.springboottest.mybatis.mapper.UserAuthIdSymbolMapper;
 import com.pxf.project.springboottest.mybatis.model.UserAuthIdSymbol;
@@ -42,6 +45,26 @@ public class UserAuthIdSymbolDaoImpl implements UserAuthIdSymbolDao {
         }
         return null;
     }
+
+    @Override
+    public PageInfo<UserAuthIdSymbol> findByPage(Integer pageNum, Integer pageSize) {
+        try {
+            pageNum = pageNum == null ? 1 : pageNum;
+            pageSize = pageSize == null ? 10 : pageSize;
+            PageHelper.startPage(pageNum, pageSize);
+            UserAuthIdSymbolExample example = new UserAuthIdSymbolExample();
+            UserAuthIdSymbolExample.Criteria criteria = example.createCriteria();
+            criteria.andTenantIdEqualTo("000");
+            List<UserAuthIdSymbol> list = userAuthIdSymbolMapper.selectByExample(example);
+            PageInfo pageInfo = new PageInfo(list);
+            Page page = (Page) list;
+            return pageInfo;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
     @Override
     public UserAuthIdSymbol findByAuthIdByJdbc(String authId) {
