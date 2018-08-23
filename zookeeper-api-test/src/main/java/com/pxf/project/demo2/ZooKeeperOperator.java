@@ -3,6 +3,7 @@ package com.pxf.project.demo2;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.ZooDefs;
+import org.apache.zookeeper.data.Stat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,12 +31,30 @@ public class ZooKeeperOperator extends AbstractZooKeeper  {
         this.zooKeeper.create(path, data, ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
     }
 
+    /**
+     *  设置节点值
+     * @param path
+     * @param data
+     * @param version
+     * @throws KeeperException
+     * @throws InterruptedException
+     */
     public void setData(String path,byte[] data,int version)throws KeeperException, InterruptedException{
-        /**
-         * 此处采用的是CreateMode是PERSISTENT  表示The znode will not be automatically deleted upon client's disconnect.
-         * EPHEMERAL 表示The znode will be deleted upon the client's disconnect.
-         */
         this.zooKeeper.setData(path, data, version);
+    }
+
+
+    /**
+     * 是否存在节点
+     * @param path
+     * @param watch
+     * @return
+     * @throws KeeperException
+     * @throws InterruptedException
+     */
+    public Stat exists(String path, boolean watch)throws KeeperException, InterruptedException{
+        Stat stat = this.zooKeeper.exists(path,watch);
+        return stat;
     }
 
 
@@ -88,17 +107,22 @@ public class ZooKeeperOperator extends AbstractZooKeeper  {
 //            zkoperator.create("/zz/child3", zktest.getBytes());
 //            System.out.println("获取设置的信息："+new String(zkoperator.getData("/zz/child3")));
 
-            // 修改子目录节点数据
-            zkoperator.setData("/zz/child1","hahahahaha".getBytes(),-1);
-            byte[] datas = zkoperator.getData("/zz/child1");
-            String str = new String(datas,"utf-8");
-            System.out.println("setData --->"+str);
+//            //修改子目录节点数据  version 为 -1 可以匹配任何版本
+//            zkoperator.setData("/zz/child1","hahahahahafhfdsgdfdg".getBytes(),-1);
+//            byte[] datas = zkoperator.getData("/zz/child1");
+//            String str = new String(datas,"utf-8");
+//            System.out.println("setData --->"+str);
 
-            System.out.println("节点孩子信息:");
-            zkoperator.getChild("/zz");
+//            System.out.println("节点孩子信息:");
+//            zkoperator.getChild("/zz");
+
+            Stat stat = zkoperator.exists("/zz/aa", true);
+            System.out.println("----->"+stat);
+
+
+
 
             zkoperator.close();
-
 
         } catch (Exception e) {
             e.printStackTrace();
