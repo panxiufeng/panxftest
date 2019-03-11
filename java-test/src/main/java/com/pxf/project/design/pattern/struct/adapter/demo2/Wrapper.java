@@ -1,7 +1,8 @@
 package com.pxf.project.design.pattern.struct.adapter.demo2;
 
-import com.pxf.project.struct.adapter.demo1.Source;
-import com.pxf.project.struct.adapter.demo1.Targetable;
+
+import com.pxf.project.design.pattern.struct.adapter.demo1.Source;
+import com.pxf.project.design.pattern.struct.adapter.demo1.Targetable;
 
 public class Wrapper  implements Targetable {
 

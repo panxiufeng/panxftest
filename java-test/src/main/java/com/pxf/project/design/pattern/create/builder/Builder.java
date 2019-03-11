@@ -1,8 +1,7 @@
 package com.pxf.project.design.pattern.create.builder;
 
-import com.pxf.project.create.factory.demo1.MailSender;
-import com.pxf.project.create.factory.demo1.Sender;
-import com.pxf.project.create.factory.demo1.SmsSender;
+
+import com.pxf.project.design.pattern.create.factory.demo1.*;
 
 import java.util.ArrayList;
 import java.util.List;

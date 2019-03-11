@@ -31,7 +31,7 @@ public class MyVisitor implements Visitor {
 
 
     @Override
-    public void visit(com.pxf.project.behavior.visitor.Subject sub) {
+    public void visit(com.pxf.project.design.pattern.behavior.visitor.Subject sub) {
         System.out.println("visit the subject："+sub.getSubject());
     }
 }
