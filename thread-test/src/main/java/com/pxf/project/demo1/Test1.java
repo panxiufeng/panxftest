@@ -60,7 +60,7 @@ public class Test1 {
             t.start();
         }
 
-        System.out.println("----->version 3");
+        System.out.println("----->强制回退 version 1");
 
     }
 }
