@@ -60,7 +60,7 @@ public class Test1 {
             t.start();
         }
 
-        System.out.println("----->version 1");
+        System.out.println("----->version 2");
 
     }
 }
