@@ -14,7 +14,7 @@ public class Tree {
     }
 
     public static void main(String[] args) {
-        Tree tree = new Tree("MutilClass");
+        Tree tree = new Tree("A");
         TreeNode nodeB = new TreeNode("B");
         TreeNode nodeC = new TreeNode("C");
 
