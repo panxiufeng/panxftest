@@ -25,9 +25,9 @@ package com.pxf.project.zz;
 /**
  *  内部类编译生成几个文件？？？
  * @author panxiufeng
- * @version Id: A.java, v 0.1 2019/3/7 20:33 panxiufeng Exp $$
+ * @version Id: MutilClass.java, v 0.1 2019/3/7 20:33 panxiufeng Exp $$
  */
-public class A {
+public class MutilClass {
 
     private void display() {
         new B().show();
@@ -35,7 +35,7 @@ public class A {
 
     public static void main(String[] args) {
         System.out.println("==========");
-        new A().display();
+        new MutilClass().display();
     }
 
     class B{
