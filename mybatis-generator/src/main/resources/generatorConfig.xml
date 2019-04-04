@@ -9,17 +9,18 @@
 			location="D:/MyServer/mybatis-tool/mysql-connector-java-5.1.9.jar" />
 
 	<context id="Tables" targetRuntime="MyBatis3">
-		<!--去除注释 -->
+
 		<commentGenerator>
+			<!--去除注释 -->
 			<property name="suppressAllComments" value="true" />
 		</commentGenerator>
 
 		<!--数据库连接 -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-						connectionURL="jdbc:mysql://10.53.156.240:3306/loanpublic?characterEncoding=utf8"
+						connectionURL="jdbc:mysql://10.53.156.240:3306/loanpublic?characterEncoding=utf8&amp;useSSL=false"
 						userId="dev"
 						password="wdphdev2018">
-			<property name="useInformationSchema" value="true"></property>
+			<!--<property name="useInformationSchema" value="true"></property>-->
 		</jdbcConnection>
 
 		<!--默认false Java type resolver will always use java.math.BigDecimal if
@@ -43,7 +44,7 @@
 			   enableDeleteByExample="false" enableSelectByExample="false"
 			   selectByExampleQueryId="false" />-->
 
-		<table tableName="console_operate_log_his"></table>
+		<table tableName="flow_approval_limit_config"></table>
 
 
 	</context>
