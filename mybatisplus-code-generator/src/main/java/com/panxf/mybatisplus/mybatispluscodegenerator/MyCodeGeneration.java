@@ -31,7 +31,6 @@ import com.baomidou.mybatisplus.generator.config.FileOutConfig;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
 import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
-import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.generator.config.TemplateConfig;
 import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
 import com.baomidou.mybatisplus.generator.config.po.TableFill;
@@ -51,14 +50,10 @@ import java.util.Map;
  * @Author panxiufeng
  * @Date 2019/4/21下午5:31
  */
-public class CodeGeneration {
+public class MyCodeGeneration {
 
     public static void main(String[] args) {
         AutoGenerator mpg = new AutoGenerator();
-
-        // 自定义需要填充的字段
-//        List<TableFill> tableFillList = new ArrayList<TableFill>();
-//        tableFillList.add(new TableFill("ASDD_SS", FieldFill.INSERT_UPDATE));
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
@@ -86,10 +81,13 @@ public class CodeGeneration {
         dsc.setTypeConvert(new MySqlTypeConvert(){
             // 自定义数据库表字段类型转换【可选】
             public PropertyInfo processTypeConvert(GlobalConfig globalConfig,String fieldType) {
-                System.out.println("转换类型：" + fieldType);
-//                 if ( fieldType.toLowerCase().contains("tinyint")&& fieldType.length()==1 ) {
+//                System.out.println("转换类型：" + fieldType);
+//                if ( fieldType.toLowerCase().contains("tinyint")&& fieldType.length()==1 ) {
 //                    return DbColumnType.BOOLEAN;
-//                 }
+//                }
+//                if ( fieldType.toLowerCase().contains("datetime")) {
+//                    return DbColumnType.TIMESTAMP;
+//                }
                 // 注意！！processTypeConvert 存在默认类型转换，如果不是你要的效果请自定义返回、非如下直接返回。
                 return super.processTypeConvert(globalConfig,fieldType);
             }
@@ -106,6 +104,12 @@ public class CodeGeneration {
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
         strategy.setInclude(new String[] { "user_personal_info" }); // 需要生成的表
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
+        strategy.setRestControllerStyle(true);//生成 @RestController 控制器
+        strategy.setControllerMappingHyphenStyle(false);//驼峰转连字符
+
+        //strategy.setSuperControllerClass("com.baomidou.ant.common.BaseController");//自定义继承的Controller类全称，带包名
+        //strategy.setSuperEntityColumns("id");//自定义基础的Entity类，公共字段
+
         strategy.setSuperServiceClass(null);
         strategy.setSuperServiceImplClass(null);
         strategy.setSuperMapperClass(null);
@@ -123,9 +127,12 @@ public class CodeGeneration {
         pc.setXml("xml");
         mpg.setPackageInfo(pc);
 
-
-
 /*
+
+        // 自定义需要填充的字段
+        List<TableFill> tableFillList = new ArrayList<TableFill>();
+        tableFillList.add(new TableFill("ASDD_SS", FieldFill.INSERT_UPDATE));
+
         // 注入自定义配置，可以在 VM 中使用 cfg.abc 【可无】  ${cfg.abc}
         InjectionConfig cfg = new InjectionConfig() {
             @Override
@@ -135,14 +142,13 @@ public class CodeGeneration {
                 this.setMap(map);
             }
         };
-
         // 自定义 xxListIndex.html 生成
         List<FileOutConfig> focList = new ArrayList<FileOutConfig>();
-        focList.add(new FileOutConfig("/templates/list.html.vm") {
+        focList.add(new FileOutConfig("/data/templates/list.html.vm") {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输入文件名称
-                return "F:/idea-maven/maven/src/main/resources/static/" + tableInfo.getEntityName() + "ListIndex.html";
+                return "/data/templates/static/" + tableInfo.getEntityName() + "ListIndex.html";
             }
         });
         cfg.setFileOutConfigList(focList);
@@ -158,7 +164,9 @@ public class CodeGeneration {
         tc.setMapper("/data/templates/mapper.java.vm");
         tc.setXml("/data/templates/mapper.xml.vm");
         // 如上任何一个模块如果设置 空 OR Null 将不生成该模块。
-        mpg.setTemplate(tc);*/
+        mpg.setTemplate(tc);
+
+*/
 
         // 执行生成
         mpg.execute();
