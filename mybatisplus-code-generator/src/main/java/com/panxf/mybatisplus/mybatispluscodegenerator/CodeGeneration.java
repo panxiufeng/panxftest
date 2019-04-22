@@ -56,10 +56,6 @@ public class CodeGeneration {
     public static void main(String[] args) {
         AutoGenerator mpg = new AutoGenerator();
 
-        // 自定义需要填充的字段
-//        List<TableFill> tableFillList = new ArrayList<TableFill>();
-//        tableFillList.add(new TableFill("ASDD_SS", FieldFill.INSERT_UPDATE));
-
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         gc.setOutputDir("/data/");
