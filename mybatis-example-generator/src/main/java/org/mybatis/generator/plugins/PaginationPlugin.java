@@ -1,4 +1,4 @@
-package generator.plugins;
+package org.mybatis.generator.plugins;
 
 import org.mybatis.generator.api.CommentGenerator;
 import org.mybatis.generator.api.IntrospectedTable;
@@ -16,7 +16,7 @@ import org.mybatis.generator.api.dom.xml.XmlElement;
 import java.util.List;
 
 public class PaginationPlugin extends PluginAdapter {
-    @Override
+
     public boolean validate(List<String> list) {
         return true;
     }
