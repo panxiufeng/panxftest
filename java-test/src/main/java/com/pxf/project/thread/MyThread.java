@@ -20,32 +20,30 @@
  * the third party without the agreement of wandaph. If Any problem cannot be solved in the
  * procedure of programming should be feedback to wandaph Co,. Ltd Inc in time, Thank you!
  */
-package com.pxf.project.zz;
+package com.pxf.project.thread;
 
 /**
- *  内部类编译生成几个文件？？？
+ *
  * @author panxiufeng
- * @version Id: A.java, v 0.1 2019/3/7 20:33 panxiufeng Exp $$
+ * @version Id: MyThread.java, v 0.1 2019/4/15 15:21 panxiufeng Exp $$
  */
-public class A {
+public class MyThread implements Runnable{
 
-    private void display() {
-        new B().show();
+    private  String str;
+
+    public String getStr() {
+        return str;
     }
 
-    public static void main(String[] args) {
-        System.out.println("==========");
-        new A().display();
+    public void setStr(String str) {
+        this.str = str;
     }
 
-    class B{
-        public void show(){
-            System.out.println("-----show------------");
-        }
+    @Override
+    public void run() {
+
+        Test t = new Test();
+        t.test(str);
     }
 
-    class C{}
-
-    private class D{}
 }
-
