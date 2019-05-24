@@ -3,9 +3,12 @@ package com.pxf.project.springbootredis.config;
 import com.pxf.project.springbootredis.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.redis.connection.RedisClusterConfiguration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisNode;
+import org.springframework.data.redis.connection.RedisPassword;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
@@ -57,9 +60,14 @@ public class RedisConfigCluster {
     @Value("${spring.redis.cluster.max-redirects}")
     private Integer mmaxRedirectsac;
 
+    @Value("${redis.password}")
+    private String password;
+
+    @Value("${redis.timeout}")
+    private int timeout;
+
     /**
      * JedisPoolConfig 连接池
-     * @return
      */
     @Bean
     public JedisPoolConfig jedisPoolConfig() {
@@ -84,10 +92,6 @@ public class RedisConfigCluster {
     }
     /**
      * Redis集群的配置
-     * @return RedisClusterConfiguration
-     * @autor lpl
-     * @date 2017年12月22日
-     * @throws
      */
     @Bean
     public RedisClusterConfiguration redisClusterConfiguration(){
@@ -109,19 +113,18 @@ public class RedisConfigCluster {
     }
     /**
      * 配置工厂
-     * @Title: JedisConnectionFactory
-     * @param @param jedisPoolConfig
-     * @param @return
-     * @return JedisConnectionFactory
-     * @autor lpl
-     * @date 2017年12月22日
-     * @throws
      */
     @Bean
     public JedisConnectionFactory JedisConnectionFactory(JedisPoolConfig jedisPoolConfig, RedisClusterConfiguration redisClusterConfiguration){
-        JedisConnectionFactory JedisConnectionFactory = new JedisConnectionFactory(redisClusterConfiguration,jedisPoolConfig);
 
-        return JedisConnectionFactory;
+        JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory(jedisPoolConfig);
+        //连接池
+        jedisConnectionFactory.setPoolConfig(jedisPoolConfig);
+        //如果Redis设置有密码
+        jedisConnectionFactory.setPassword(password);
+        //客户端超时时间单位是毫秒
+        jedisConnectionFactory.setTimeout(timeout);
+        return jedisConnectionFactory;
     }
 
     /**
