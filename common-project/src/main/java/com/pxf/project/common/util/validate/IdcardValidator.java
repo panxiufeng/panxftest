@@ -12,11 +12,6 @@ import java.util.GregorianCalendar;
 import java.util.regex.Pattern;
 
 /**
- * @author: xuxd14949
- * Date: 2017/6/26
- * Time: 11:06
- * @mail: xuxd14949@hundsun.com
- * @version: 2.0
  */
 
 public class IdcardValidator {

@@ -19,9 +19,6 @@ import org.springframework.web.context.WebApplicationContext;
 /** 
 * HelloController Tester. 
 * 
-* @author <Authors name> 
-* @since <pre>���� 14, 2018</pre> 
-* @version 1.0 
 */
 @RunWith(SpringRunner.class)
 @SpringBootTest

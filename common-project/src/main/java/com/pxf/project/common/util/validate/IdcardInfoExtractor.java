@@ -13,11 +13,6 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author: xuxd14949
- * Date: 2017/6/26
- * Time: 11:07
- * @mail: xuxd14949@hundsun.com
- * @version: 2.0
  */
 
 public class IdcardInfoExtractor {

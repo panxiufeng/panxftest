@@ -5,8 +5,6 @@ import org.apache.commons.net.util.Base64;
 /**
  * Base64 编码与解码
  * 
- * @author mawei
- * @version $Id: Base64Util.java, v 0.1 2015年11月30日 下午12:17:25 mawei Exp $
  */
 public class Base64Util {
 

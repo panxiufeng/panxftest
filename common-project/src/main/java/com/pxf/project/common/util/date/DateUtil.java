@@ -1,7 +1,3 @@
-/**
- * hsjry.com Inc.
- * Copyright (c) 2014-2015 All Rights Reserved.
- */
 package com.pxf.project.common.util.date;
 
 import java.sql.Timestamp;

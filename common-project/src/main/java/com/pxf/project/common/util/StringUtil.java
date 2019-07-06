@@ -1,7 +1,3 @@
-/**
- * hsjry.com Inc.
- * Copyright (c) 2014-2015 All Rights Reserved.
- */
 package com.pxf.project.common.util;
 
 import java.util.ArrayList;
@@ -10,8 +6,6 @@ import java.util.List;
 
 /**
  * 
- * @author sunjm13534
- * @version $Id: StringUtil.java, v 0.1 Oct 13, 2015 6:29:23 PM sunjm13534 Exp $
  */
 public class StringUtil {
     /**

@@ -8,9 +8,6 @@ import java.math.BigDecimal;
 import java.util.regex.Pattern;
 
 /**
- * @author: xuxd14949 Date: 2015/11/24 Time: 17:12
- * @mail: xuxd14949@hundsun.com
- * @version: 2.0
  */
 
 public class MathUtil {

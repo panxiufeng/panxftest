@@ -16,8 +16,7 @@ public class ZooKeeperOperator extends AbstractZooKeeper  {
     /**
      *
      *<b>function:</b>创建持久态的znode,比支持多层创建.比如在创建/parent/child的情况下,无/parent.无法通过 
-     *@author cuiran
-     *@createDate 2013-01-16 15:08:38 
+     *@createDate 2013-01-16 15:08:38
      *@param path
      *@param data
      *@throws KeeperException
@@ -61,8 +60,7 @@ public class ZooKeeperOperator extends AbstractZooKeeper  {
     /**
      *
      *<b>function:</b>获取节点信息 
-     *@author cuiran
-     *@createDate 2013-01-16 15:17:22 
+     *@createDate 2013-01-16 15:17:22
      *@param path
      *@throws KeeperException
      *@throws InterruptedException

@@ -42,8 +42,6 @@ import java.util.regex.Pattern;
 /**
  * excel 解析工具类
  * 
- * @author mawei
- * @version $Id: ExcelUtil.java, v 0.1 2017年5月17日 上午10:56:52 mawei Exp $
  */
 public class ExcelUtil {
 

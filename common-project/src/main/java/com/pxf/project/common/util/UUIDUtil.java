@@ -1,7 +1,3 @@
-/**
- * hsjry.com Inc.
- * Copyright (c) 2014-2015 All Rights Reserved.
- */
 package com.pxf.project.common.util;
 
 import java.util.Random;
@@ -9,8 +5,6 @@ import java.util.UUID;
 
 /**
  * UUID工具类
- * @author sunjm13534
- * @version $Id: UUIDUtil.java, v 0.1 Oct 14, 2015 1:18:12 PM sunjm13534 Exp $
  */
 public class UUIDUtil {
 

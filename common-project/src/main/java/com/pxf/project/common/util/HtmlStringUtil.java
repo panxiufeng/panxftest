@@ -13,8 +13,6 @@ import java.util.Date;
 /**
  * 页面展示的封装方法
  * 
- * @author mawei
- * @version $Id: HtmlStringUtil.java, v 0.1 2015年11月12日 下午3:10:45 mawei Exp $
  */
 public class HtmlStringUtil {
 

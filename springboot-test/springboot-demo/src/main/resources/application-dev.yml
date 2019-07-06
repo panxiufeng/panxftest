@@ -19,7 +19,7 @@ spring:
   datasource:
     url: jdbc:mysql://10.53.156.240:3306/loanpublic?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false
     username: dev
-    password: wdphdev2018
+    password: ****
 #    url: jdbc:mysql://127.0.0.1:3306/loanpublic?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false
 #    username: root
 #    password: 123456

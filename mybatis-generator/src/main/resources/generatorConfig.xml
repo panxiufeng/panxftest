@@ -19,7 +19,7 @@
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
 						connectionURL="jdbc:mysql://10.53.156.240:3306/loanpublic?characterEncoding=utf8&amp;useSSL=false"
 						userId="dev"
-						password="wdphdev2018">
+						password="****">
 			<!--<property name="useInformationSchema" value="true"></property>-->
 		</jdbcConnection>
 
@@ -29,23 +29,23 @@
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
 
-		<javaModelGenerator targetPackage="com.hsjry.flow.biz.base.dal.dao.model" targetProject="D:\MyGit\wandagit\hsjry-flow-parent\hsjry-flow-biz\src\main\java" />
-		<sqlMapGenerator targetPackage="sqlmap" targetProject="D:\MyGit\wandagit\hsjry-flow-parent\hsjry-flow-biz\src\main\resources" />
-		<javaClientGenerator targetPackage="com.hsjry.flow.biz.base.dal.dao.service" targetProject="D:\MyGit\wandagit\hsjry-flow-parent\hsjry-flow-biz\src\main\java" type="XMLMAPPER">
+		<javaModelGenerator targetPackage="com.****.flow.biz.base.dal.dao.model" targetProject="D:\MyGit\wandagit\****-flow-parent\****-flow-biz\src\main\java" />
+		<sqlMapGenerator targetPackage="sqlmap" targetProject="D:\MyGit\wandagit\****-flow-parent\****-flow-biz\src\main\resources" />
+		<javaClientGenerator targetPackage="com.****.flow.biz.base.dal.dao.service" targetProject="D:\MyGit\wandagit\****-flow-parent\****-flow-biz\src\main\java" type="XMLMAPPER">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 
 
 		<!--
-		<javaModelGenerator targetPackage="com.hsjry.flow.biz.base.dal.dao.model" targetProject="D:/MyServer/mybatis-tool/src" />
+		<javaModelGenerator targetPackage="com.****.flow.biz.base.dal.dao.model" targetProject="D:/MyServer/mybatis-tool/src" />
 		<sqlMapGenerator targetPackage="sqlmap" targetProject="D:/MyServer/mybatis-tool/src" />
-		<javaClientGenerator targetPackage="com.hsjry.flow.biz.base.dal.dao.service" targetProject="D:/MyServer/mybatis-tool/src" type="XMLMAPPER">
+		<javaClientGenerator targetPackage="com.****.flow.biz.base.dal.dao.service" targetProject="D:/MyServer/mybatis-tool/src" type="XMLMAPPER">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 
-		<javaModelGenerator targetPackage="com.wandaph.userlabel.dal.dao.model" targetProject="D:/MyServer/mybatis-tool/src" />
+		<javaModelGenerator targetPackage="com.****.userlabel.dal.dao.model" targetProject="D:/MyServer/mybatis-tool/src" />
 		<sqlMapGenerator targetPackage="sqlmap" targetProject="D:/MyServer/mybatis-tool/src" />
-		<javaClientGenerator targetPackage="com.wandaph.userlabel.dal.dao.mapper" targetProject="D:/MyServer/mybatis-tool/src" type="XMLMAPPER">
+		<javaClientGenerator targetPackage="com.****.userlabel.dal.dao.mapper" targetProject="D:/MyServer/mybatis-tool/src" type="XMLMAPPER">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 

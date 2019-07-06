@@ -4,9 +4,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author:lixk21612
- * @version：下午3:59:27
- * @time:2017年6月21日
  */
 public class RegexUtil {  
 	  
