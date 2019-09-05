@@ -1,5 +1,6 @@
 package com.pxf.project.springboottest.scheduler;
 
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 /**
@@ -21,8 +22,8 @@ public class SchedulerTask {
 
     private int count=0;
 
-//    @Scheduled(cron="*/50 * * * * ?")
-//    private void process(){
-//        System.out.println("this is scheduler task runing  "+(count++));
-//    }
+    @Scheduled(cron="*/50 * * * * ?")
+    private void process(){
+        System.out.println("this is scheduler task runing  "+(count++));
+    }
 }
