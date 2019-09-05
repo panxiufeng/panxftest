@@ -1,0 +1,132 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+
+<script th:src="@{${#resourceUtil.getStaticDomain()} + '/console/js/panxf.organ.js'}"></script>
+
+
+<div class="row page-header" id="organ_tree_div">
+    <div class="col-xs-2">
+        <div class="widget-box widget-color-blue2">
+            <div class="widget-header">
+                <h4 class="widget-title lighter smaller">
+                    <span class="smaller-80">组织机构树</span>
+                </h4>
+            </div>
+
+            <div class="widget-body">
+                <div class="widget-main padding-8">
+                    <ul id="organ_tree"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-10">
+        <div class="row page-header" id="search_form_div">
+            <div class="col-xs-12">
+                <!-- 查询条件 BEGINS -->
+                <form class="form-horizontal" role="form" id="search_form">
+
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label no-padding-right" for="organName"> 机构名称 </label>
+                        <div class="col-sm-3">
+                            <input type="text" id="organName" name="organName" placeholder="机构名称" class="form-control">
+                        </div>
+
+                        <label class="col-sm-1 control-label no-padding-right" for="organCode"> 机构编码 </label>
+                        <div class="col-sm-3">
+                            <input type="text" id="organCode" name="organCode" placeholder="机构编码" class="form-control">
+                        </div>
+
+                        <label class="col-sm-1 control-label no-padding-right"></label>
+                        <div class="col-sm-3">
+                            <button class="btn btn-info btn-sm" type="button" onclick="panxf.role.querypage(1);"><i class="ace-icon fa fa-search"></i>查询</button>
+                            <button class="btn btn-sm" type="reset" onclick="panxf.role.clearform();"> <i class="ace-icon fa fa-undo"></i></i>重置</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- 查询条件 ENDS -->
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+
+        <!--ajaxGetHtml 请求-->
+        <div th:replace="/console/common/common_page::page_content(${#resourceUtil.getAppDomain()}+'/console/role/rolepage','{pageNo:1}')"></div>
+    </div>
+</div>
+
+
+<script th:src="@{${#resourceUtil.getStaticDomain()} + '/console/lib/ace_assets/js/tree.min.js'}"></script>
+<script type="application/javascript">
+
+    jQuery(function($){
+
+
+        var treeNodes = [(${treeJson})];
+        var dataSourceFunc = function(options, callback){
+            var treedata = null
+            if(!("text" in options) && !("type" in options)){
+                treedata = treeNodes;//the root tree
+                callback({ data: treedata });
+                return;
+            }
+            else if("type" in options && options.type == "folder") {
+                if("additionalParameters" in options && "children" in options.additionalParameters)
+                    treedata = options.additionalParameters.children || {};
+                else treedata = {}//no data
+            }
+
+            if(treedata != null)//this setTimeout is only for mimicking some random delay
+                setTimeout(function(){callback({ data: treedata });} , parseInt(Math.random() * 500) + 200);
+
+        }
+
+        $('#organ_tree').ace_tree({
+            dataSource: dataSourceFunc,
+            loadingHTML:'<div class="tree-loading"><i class="ace-icon fa fa-refresh fa-spin blue"></i></div>',
+            'open-icon' : 'ace-icon fa fa-folder-open',
+            'close-icon' : 'ace-icon fa fa-folder',
+            'itemSelect' : true,
+            'folderSelect': true,
+            'multiSelect': false,
+            'selected-icon' : null,
+            'unselected-icon' : null,
+            'folder-open-icon' : 'ace-icon tree-plus',
+            'folder-close-icon' : 'ace-icon tree-minus'
+        });
+
+
+        /**
+         //Use something like this to reload data
+         $('#tree1').find("li:not([data-template])").remove();
+         $('#tree1').tree('render');
+         */
+
+
+        //please refer to docs for more info
+         $('#organ_tree')
+             .on('click.fu.tree', function(e) {
+                 panxf.windows.easyGritter(e);
+
+             })
+             .on('loaded.fu.tree', function(e) {
+                 panxf.windows.easyGritter("loaded");
+            })
+             .on('updated.fu.tree', function(e, result) {
+                 panxf.windows.easyGritter("updated");
+            })
+             .on('selected.fu.tree', function(e) {
+                 panxf.windows.easyGritter("selected");
+            })
+             .on('deselected.fu.tree', function(e) {
+                 panxf.windows.easyGritter("deselected");
+            })
+             .on('opened.fu.tree', function(e) {
+                 panxf.windows.easyGritter("opened");
+            })
+             .on('closed.fu.tree', function(e) {
+                 panxf.windows.easyGritter("closed");
+            });
+
+            });
+
+</script>
+</html>
